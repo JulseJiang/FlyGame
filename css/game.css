@@ -1,0 +1,84 @@
+.gamesize {
+	width: 600px;
+	height: 450px;
+}
+
+#game {
+	position: relative;
+	margin: 0 auto;
+	text-align: center;
+	overflow: hidden;
+}
+
+#game section {
+	position: absolute;
+}
+
+#load_scene {
+	width: 100%;
+	height: 100%;
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+	background-color: rgb(60, 63, 74);
+}
+
+#load_scene #progress_border {
+	width: 400px;
+	height: 40px;
+	border: 2px solid lightcoral;
+	border-radius: 30px;
+	padding: 2px;
+}
+
+#load_scene #progress {
+	background-color: rgb(156, 221, 115);
+	margin-top: -26px;
+	width: 0;
+	height: 98%;
+	border-radius: 30px;
+}
+
+#txtper {
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#start_scene {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	background: url(../images/Start.png) no-repeat;
+	display: none;
+}
+
+#win_scene,
+#lose_scene {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	top: -450px;
+	transition: all 1s;
+	z-index: 100;
+}
+
+#win_scene {
+	background: url(../images/SpaceShooter_Win.png) no-repeat;
+}
+
+#lose_scene {
+	background: url(../images/SpaceShooter_Lose.png) no-repeat;
+}
+
+#game section.scence_fadein {
+	top: 0;
+}
+
+#game_scene {
+	display: none;
+}
+
+#gameCanvas {
+	background-color: lightgrey;
+}

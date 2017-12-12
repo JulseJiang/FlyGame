@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/game.css" />
+	</head>
+	<body>
+		<div id="game" class="gamesize">
+			<!--这是加载场景-->
+			<section id="load_scene">
+				<div id="progress_border">
+					<span id="txtper">0%</span>
+					<div id="progress">
+					</div>
+				</div>
+			</section>
+			<!--这是开始场景-->
+			<section id="start_scene"></section>
+			<!--这是胜利场景-->
+			<section id="win_scene"></section>
+			<!--这是失败场景-->
+			<section id="lose_scene"></section>
+			<!--这是游戏场景-->
+			<section id="game_scene">
+				<canvas id="gameCanvas" width="600" height="450">
+					对不起，浏览器不支持Canvas!
+				</canvas>
+			</section>
+		</div>
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<!--参数配置-->
+		<script type="text/javascript" src="js/config.js" ></script>
+		<script src="js/preload.js"></script>
+		<script src="js/director.js"></script>
+		<script src="js/background.js"></script>
+		<!--game.js中用到了background.js-->
+		<script type="text/javascript" src="js/player.js" ></script>
+		<script type="text/javascript" src="js/candidate/candidate.js" ></script>
+		<script type="text/javascript" src="js/enemies.js" ></script>
+        <script src="js/game.js" ></script>
+	</body>
+
+</html>
