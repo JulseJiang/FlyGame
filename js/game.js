@@ -31,6 +31,16 @@ game.changeScene = function($scene1, $scene2) {
 		$scene2.show();
 	}
 }
+//游戏的初始化
+game.init = function(){
+	director.gameCtx = $('#gameCanvas')[0].getContext('2d');
+//			alert(director.gameCtx);
+			director.back = new backGround(director.gameCtx,director.imgs[7]);
+//			飞机对象--玩家
+			director.player = new player(director.gameCtx,director.imgs[2]);
+//			敌人
+			director.enemies[0] = new enemies(director.gameCtx,director.imgs[4],300,200);
+}
 //键盘绑定
 game.bindKey = function(){
 	$(document).keydown(function(e){
@@ -39,13 +49,7 @@ game.bindKey = function(){
 			game.gameStarted = true;
 			console.log('game started...');
 			game.changeScene(game.$startScene,game.$gameScene);
-			director.gameCtx = $('#gameCanvas')[0].getContext('2d');
-//			alert(director.gameCtx);
-			director.back = new backGround(director.gameCtx,director.imgs[7]);
-//			飞机对象--玩家
-			director.player = new player(director.gameCtx,director.imgs[2]);
-//			敌人
-			director.enemies[0] = new enemies(director.gameCtx,director.imgs[2],200,400);
+			game.init();
 			director.playGame();
 		}
 		else{
