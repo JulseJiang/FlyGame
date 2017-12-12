@@ -30,7 +30,7 @@ var director={
 /*游戏主循环*/
 function gameLoop(){
 	//0.清屏
-	console.log('0.清屏');
+//	console.log('0.清屏');
 	director.gameCtx.clearRect(0,0,600,450);
 	//1.画背景
 //	console.log('1.画背景');
@@ -39,14 +39,20 @@ function gameLoop(){
 //	console.log('2.画飞机');
 	director.player.draw();
 	//3.画敌人
-	console.log('3.画敌人');
-	director.enemies[0].draw();
+//	console.log('3.画敌人');
+	for (var i = 0; i < director.enemies.length; i++) {
+		director.enemies[i].draw();
+	}
+	
 	//4.画子弹
-	console.log('4.画子弹');
+	console.log('4.画子弹 个数：'+director.bullets.length);
+	for (var i = 0; i < director.bullets.length; i++) {
+		director.bullets[i].draw();
+	}
 	//5.碰撞检测
-	console.log('5.碰撞检测');
+//	console.log('5.碰撞检测');
 	//6.画分数
-	console.log('6.画分数');
+//	console.log('6.画分数');
 	
 	director.gameTimer = requestAnimationFrame(gameLoop);
 }

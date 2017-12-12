@@ -28,12 +28,21 @@
 				</canvas>
 			</section>
 		</div>
+		<div id="audio_area">
+			<audio id="backAudio" loop preload="auto">
+				<source src="media/background.ogg" type="audio/ogg"></source>
+			</audio>
+			<audio id="shootAudio" preload="auto">
+				<source src="media/Shoot.wav"></source>
+			</audio>
+		</div>
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<!--参数配置-->
 		<script type="text/javascript" src="js/config.js" ></script>
 		<script src="js/preload.js"></script>
 		<script src="js/background.js"></script>
 		<!--game.js中用到了background.js-->
+		<script type="text/javascript" src="js/bullet.js" ></script>
 		<script type="text/javascript" src="js/player.js" ></script>
 		<script src="js/director.js"></script>
 		<script type="text/javascript" src="js/candidate/candidate.js" ></script>

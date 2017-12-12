@@ -9,5 +9,8 @@ function bullet(ctx,imgSrc,x,y){
 	this.y = y;
 }
 bullet.prototype.draw = function(){
-	this.ctx.drawImage(this.img,this.x,this.y);
+	this.y-=3;
+	this.ctx.drawImage(this.img,this.x-this.img.width/2,this.y);
+	if(this.y<0){
+	}
 }

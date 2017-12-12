@@ -39,7 +39,15 @@ game.init = function(){
 //			飞机对象--玩家
 			director.player = new player(director.gameCtx,director.imgs[2]);
 //			敌人
-			director.enemies[0] = new enemies(director.gameCtx,director.imgs[4],300,200);
+			director.enemies.push(new enemies(director.gameCtx,director.imgs[4],300,200)); 
+			director.enemies.push(new enemies(director.gameCtx,director.imgs[4],100,100)); 
+//			背景音乐
+			director.backAudio = $("#backAudio")[0];
+			director.backAudio.play();
+			director.backAudio.volume = 0.2;
+			
+			director.shootAudio = $('#shootAudio')[0];
+			
 }
 //键盘绑定
 game.bindKey = function(){
