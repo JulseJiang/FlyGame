@@ -62,3 +62,6 @@ player.prototype.fire = function(){
 		this.fireTime = new Date();
 	}
 }
+player.prototype.getCenter = function(){
+	return new Point(this.x+this.img.width/2,this.y+this.img.height/2);
+}

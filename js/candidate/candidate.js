@@ -3,9 +3,14 @@
  */
 function candidate(ctx,imgSrc){
 	this.ctx = ctx;
-	this.img =  new Image();
+	this.img = new Image();
 	this.img.src = imgSrc;
-	this.x = 0;
-	this.y = 0;
+	this.x = x;
+	this.y = y;
+	this.toDiscrad = false;
 }
-//this.prototype.draw = function(){};
+
+bullet.prototype.draw = function(){}
+bullet.prototype.getCenter = function(){
+	return new Point(this.x+this.img.width/2,this.y+this.img.height/2);
+}

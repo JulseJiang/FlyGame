@@ -46,11 +46,26 @@ function gameLoop(){
 	
 	//4.画子弹
 	console.log('4.画子弹 个数：'+director.bullets.length);
-	for (var i = 0; i < director.bullets.length; i++) {
+//	director.bullets = director.bullets.remoceDiscard();
+	for (var i = 0; i < director.bullets.length; i++) {//删除子弹时，不能在draw方法中改变循环数组
 		director.bullets[i].draw();
+		
 	}
 	//5.碰撞检测
 //	console.log('5.碰撞检测');
+	director.bullets = director.bullets.remoceDiscard();
+	director.enemies = director.enemies.remoceDiscard();
+	for (var i = 0; i < director.enemies.length; i++) {
+		//检测是否和子弹碰撞
+		for (var j = 0; j < director.bullets.length; j++) {
+			if(checkCollision(director.enemies[i],director.bullets[j])){
+				director.enemies[i].exploded = true;
+				director.bullets[j].toDiscrad = true;
+				console.log('打中了');
+			}
+		}
+		//检测是否和飞机碰撞
+	}
 	//6.画分数
 //	console.log('6.画分数');
 	
