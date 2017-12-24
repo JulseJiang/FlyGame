@@ -45,29 +45,42 @@ function gameLoop(){
 	}
 	
 	//4.画子弹
-	console.log('4.画子弹 个数：'+director.bullets.length);
-//	director.bullets = director.bullets.remoceDiscard();
+//	console.log('4.画子弹 个数：'+director.bullets.length);
+//	director.bullets = director.bullets.removeDiscard();
 	for (var i = 0; i < director.bullets.length; i++) {//删除子弹时，不能在draw方法中改变循环数组
 		director.bullets[i].draw();
 		
 	}
 	//5.碰撞检测
 //	console.log('5.碰撞检测');
-	director.bullets = director.bullets.remoceDiscard();
-	director.enemies = director.enemies.remoceDiscard();
+	director.bullets = director.bullets.removeDiscard();
+	director.enemies = director.enemies.removeDiscard();
 	for (var i = 0; i < director.enemies.length; i++) {
 		//检测是否和子弹碰撞
 		for (var j = 0; j < director.bullets.length; j++) {
 			if(checkCollision(director.enemies[i],director.bullets[j])){
+				director.score++;
 				director.enemies[i].exploded = true;
 				director.bullets[j].toDiscrad = true;
-				console.log('打中了');
+//				console.log('打中了');
 			}
 		}
 		//检测是否和飞机碰撞
+		if(checkCollision(director.enemies[i],director.player)){
+				director.enemies[i].exploded = true;
+				director.player.exploded = true;
+				setTimeout(function(){
+					director.player.exploded = false;
+				},3000);
+				console.log('飞机爆炸了');
+				break;
+			}
 	}
 	//6.画分数
 //	console.log('6.画分数');
-	
+	director.gameCtx.fillText(director.score,20,40);
+	director.gameCtx.fillStyle = 'yellow';
+	director.gameCtx.font='40pt 宋体';
+	director.gameCtx.stroke();
 	director.gameTimer = requestAnimationFrame(gameLoop);
 }
